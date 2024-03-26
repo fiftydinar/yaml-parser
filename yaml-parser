@@ -12,7 +12,7 @@ yaml_help () {
 }
 
 yaml_read () {
-    result=$(grep -oP "(?<=${2}:)[^#]*" "${1}" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+    result=$(awk -F ": " -v key="${2}" '$1 == key {print $2}' "${1}" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
     if [ -z "${result}" ]; then
       printf "\e[1;31mnull\e[0m\n"  # Print "null" in red color if no results are found
     else
@@ -21,11 +21,11 @@ yaml_read () {
 }
 
 yaml_write () {
-    result=$(grep -oP "(?<=${3}:)[^#]*" "${1}" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+    result=$(awk -F ": " -v key="${3}" '$1 == key {print $2}' "${1}" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
     if [ -z "${result}" ]; then
       printf "\e[1;31mERROR: Supplied YAML key doesn't exist.\e[0m\n" 1>&2
     else
-      sed -i "s/\(${3}: ${result}\)/${3}: ${4}/g" "${1}" # Write the supplied value to specified yaml key
+      awk -v key="${3}" -v value="${4}" '$1 == key {$2 = value} 1' "${1}" > "${1}.tmp" && mv "${1}.tmp" "${1}"
     fi
 }
 
