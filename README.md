@@ -1,5 +1,5 @@
 # yaml-parser
-Basic YAML-parser written in POSIX-compliant shell.  
+Basic YAML-parser written in Bash shell, using GNU CoreUtils.
 I wrote this for projects which would be strictly Bash or POSIX compliant, so using [`yq`](https://github.com/mikefarah/yq) in this case wouldn't be an option.
 
 # Features
