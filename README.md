@@ -13,8 +13,8 @@ I try to be POSIX-compliant as much as possible in order to improve compatibilit
   harder to implement, I will try to implement this in the future
 - **Writing values to YAML arrays**  
   harder to implement, I will try to implement this in the future
-- **Specifying code line where key value should be replaced in case of multiple same keys**
 - **Having the line number when reading YAML file content**
+- **Specifying code line where key value should be replaced in case of multiple same keys**
 - **Anything else that I don't know**  
   as I'm not the advanced user of YAML files
 
@@ -39,13 +39,13 @@ yaml-parser "file.yml" --write "key" "value"
 
 # Installation
 
-Only tested on Fedora Linux.
+Only tested on Linux with GNU Utilities.
 
 If local install command doesn't work, you will probably need to add `$HOME/.local/bin` directory to path in shell profile.
 Alternatively, modify the command to install `yaml-parser` to `$HOME/bin` directory instead.  
 System install command should work for most Linux distributions.
 
-MacOS support is unknown.
+MacOS, FreeBSD & OpenBSD support is unknown.
 
 **Local (only current user has access):**
 ```sh
