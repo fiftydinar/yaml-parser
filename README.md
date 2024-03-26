@@ -1,7 +1,7 @@
 # yaml-parser
-Basic YAML-parser written in Bash shell, using GNU Utilities.  
-I wrote this for projects which would be strictly Bash compliant, so using [`yq`](https://github.com/mikefarah/yq) in this case wouldn't be an option.  
-I try to be POSIX-compliant as much as possible, but that's something I can't guarantee or support.
+Basic YAML-parser written in SH shell, using GNU Utilities.  
+I wrote this for projects which are strictly coded in shell language (mostly Bash), so using [`yq`](https://github.com/mikefarah/yq) in this case wouldn't be an option.  
+I try to be POSIX-compliant as much as possible in order to improve compatibility, but I can't guarantee that yaml-parser will work on every POSIX-based OS.
 
 # Features
 - Supports reading of YAML files content in `.yml` & `.yaml` format.
