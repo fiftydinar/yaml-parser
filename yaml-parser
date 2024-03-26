@@ -12,20 +12,20 @@ yaml_help () {
 }
 
 yaml_read () {
-    result=$(awk -F ": " -v key="${2}" '{sub(/#.*/, "", $2); gsub(/^[ \t]+|[ \t]+$/, "", $2)} $1 == key {print $2}' "${1}")
-    if [ -z "${result}" ]; then
+    result1=$(awk -F ": " -v key="${2}" '{sub(/#.*/, "", $2); gsub(/^[ \t]+|[ \t]+$/, "", $2)} $1 == key {print $2}' "${1}")
+    if [ -z "${result1}" ]; then
       printf "\e[1;31mnull\e[0m\n"  # Print "null" in red color if no results are found
     else
-      printf "\e[1;34m%s\e[0m\n" "${result}"  # Print the matching result in blue color
+      printf "\e[1;34m%s\e[0m\n" "${result1}"  # Print the matching result in blue color
     fi
 }
 
 yaml_write () {
-    result=$(awk -F ": " -v key="${3}" '{sub(/#.*/, "", $2); gsub(/^[ \t]+|[ \t]+$/, "", $2)} $1 == key {print $2}' "${1}")
-    if [ -z "${result}" ]; then
+    result2=$(awk -F ": " -v key="${3}" '{sub(/#.*/, "", $2); gsub(/^[ \t]+|[ \t]+$/, "", $2)} $1 == key {print $2}' "${1}")
+    if [ -z "${result2}" ]; then
       printf "\e[1;31mERROR: Supplied YAML key doesn't exist.\e[0m\n" 1>&2
     else
-      sed -i "s/\(${3}: ${result}\)/${3}: ${4}/g" "${1}" # Write the supplied value to specified yaml key
+      sed -i "s/\(${3}: ${result2}\)/${3}: ${4}/g" "${1}" # Write the supplied value to specified yaml key
     fi
 }
 
