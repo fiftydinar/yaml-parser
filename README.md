@@ -37,6 +37,7 @@ yaml-parser "file.yml" --write "key" "value"
 Only tested on Fedora Linux.
 
 If local install command doesn't work, you will probably need to add `$HOME/.local/bin` directory to path in shell profile.
+Alternatively, modify the command to install `yaml-parser` to `$HOME/bin` directory instead.  
 System install command should work for most Linux distributions.
 
 MacOS support is unknown.
