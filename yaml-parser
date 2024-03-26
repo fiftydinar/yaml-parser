@@ -26,7 +26,7 @@ yaml_read () {
 }
 
 yaml_write () {
-    result2=$(awk -F ": " -v key="${3}" '{sub(/#.*/, "", $2); gsub(/^[ \t]+|[ \t]+$/, "", $2)} $1 == key {gsub(/"/, "", $2); print $2}' "${1}")
+    result2=$(awk -F ": " -v key="${3}" '{sub(/#.*/, "", $2); gsub(/^[ \t]+|[ \t]+$/, "", $2)} $1 == key {print $2}' "${1}")
     if [ -z "${result2}" ]; then
       printf "\e[1;31mERROR: Supplied YAML key doesn't exist.\e[0m\n" 1>&2
     else
