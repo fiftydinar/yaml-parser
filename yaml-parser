@@ -6,7 +6,7 @@ yaml_help () {
   printf "       yaml-parser file.yml -w yaml-key yaml-value-replacement\n"
   printf "       yaml-parser file.yml --write yaml-key yaml-value-replacement\n"  
   printf "\e[1;33mIssue:\e[0m Only regular yaml keys are supported. Arrays are not supported.\n"
-  printf "\e[1;33mAbout:\e[0m \"yaml-parser\" is a tool written in POSIX-compliant shell, which can perform basic data reading & manipulation of YAML files.\n"
+  printf "\e[1;33mAbout:\e[0m \"yaml-parser\" is a tool written in Bash shell, using GNU Coreutils, which can perform basic data reading & manipulation of YAML files.\n"
   yaml_parser_url="https://github.com/fiftydinar/yaml-parser"
   printf "       \e]8;;%s\a%s\e]8;;\a\n" "${yaml_parser_url}" "${yaml_parser_url}"
 }
