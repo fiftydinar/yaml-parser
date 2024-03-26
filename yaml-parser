@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 yaml_help () {
   printf "\e[1;33mUsage:\e[0m yaml-parser file.yml\n"
@@ -6,39 +6,39 @@ yaml_help () {
   printf "       yaml-parser file.yml -w yaml-key yaml-value-replacement\n"
   printf "       yaml-parser file.yml --write yaml-key yaml-value-replacement\n"  
   printf "\e[1;33mIssue:\e[0m Only regular yaml keys are supported. Arrays are not supported.\n"
-  printf "\e[1;33mAbout:\e[0m \"yaml-parser\" is a tool written in bash using GNU coreutils, which can perform basic data reading & manipulation of YAML files.\n"
-  url="https://github.com/fiftydinar/yaml-parser"
-  printf "       \e]8;;$url\a$url\e]8;;\a\n"
+  printf "\e[1;33mAbout:\e[0m \"yaml-parser\" is a tool written in POSIX-compliant shell, which can perform basic data reading & manipulation of YAML files.\n"
+  yaml_parser_url="https://github.com/fiftydinar/yaml-parser"
+  printf "       \e]8;;%s\a%s\e]8;;\a\n" "${yaml_parser_url}" "${yaml_parser_url}"
 }
 
 yaml_read () {
-    result=$(grep -oP "(?<="${2}":)[^#]*" "${1}" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
-    if [ -z "$result" ]; then
+    result=$(grep -oP "(?<=${2}:)[^#]*" "${1}" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+    if [ -z "${result}" ]; then
       printf "\e[1;31mnull\e[0m\n"  # Print "null" in red color if no results are found
     else
-      printf "\e[1;34m$result\e[0m\n"  # Print the matching result in blue color
+      printf "\e[1;34m%s\e[0m\n" "${result}"  # Print the matching result in blue color
     fi
 }
 
 yaml_write () {
-    result=$(grep -oP "(?<="${3}":)[^#]*" "${1}" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
-    if [ -z "$result" ]; then
+    result=$(grep -oP "(?<=${3}:)[^#]*" "${1}" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+    if [ -z "${result}" ]; then
       printf "\e[1;31mERROR: Supplied YAML key doesn't exist.\e[0m\n" 1>&2
     else
       sed -i "s/\(${3}: ${result}\)/${3}: ${4}/g" "${1}" # Write the supplied value to specified yaml key
     fi
 }
 
-if [[ -z "${1}" || "${1}" == "help" || "${1}" == "--help" || "${1}" == "-h" ]]; then
+if [ -z "${1}" ] || [ "${1}" = "help" ] || [ "${1}" = "--help" ] || [ "${1}" = "-h" ]; then
   yaml_help
-elif ! [[ "${1}" == *".yml" || "${1}" == *".yaml" ]]; then
+elif case "${1}" in (*.yml|*.yaml) false;; (*) true;; esac; then
   printf "\e[1;31mERROR: YAML file is not specified in supported .yml or .yaml extension.\e[0m\n" 1>&2
-elif [[ -n "${1}" && -f "${1}" && -n "${2}" && ! "${2}" == "-r" && ! "${2}" == "--replace" ]]; then
-  yaml_read "$1" "$2"
-elif [[ -n "${1}" && -f "${1}" && -n "${2}" && "${2}" == "-w" || "${2}" == "--write" && -n "${3}" && -n "${4}" ]]; then
-  yaml_write "$1" "$2" "$3" "$4"
-elif [[ -n "${1}" && -f "${1}" ]]; then
-  while IFS= read -r line; do printf "\033[1;34m%s\033[0m\n" "$line"; done < "${1}"
-elif ! [[ -f "${1}" ]]; then
+elif [ -n "${1}" ] && [ -f "${1}" ] && [ -n "${2}" ] && [ ! "${2}" = "-r" ] && [ ! "${2}" = "--replace" ]; then
+  yaml_read "${1}" "${2}"
+elif [ -n "${1}" ] && [ -f "${1}" ] && [ -n "${2}" ] && [ "${2}" = "-w" ] || [ "${2}" = "--write" ] && [ -n "${3}" ] && [ -n "${4}" ]; then
+  yaml_write "${1}" "${2}" "${3}" "${4}"
+elif [ -n "${1}" ] && [ -f "${1}" ]; then
+  while IFS= read -r line; do printf "\033[1;34m%s\033[0m\n" "${line}"; done < "${1}"
+elif ! [ -f "${1}" ]; then
   printf "\e[1;31mERROR: YAML file that is specified is not found in the directory.\e[0m\n" 1>&2
 fi
