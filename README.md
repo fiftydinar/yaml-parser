@@ -41,7 +41,7 @@ curl -o "$HOME/.local/bin/yaml-parser" --create-dirs https://raw.githubuserconte
 
 **System:**
 ```sh
-sudo curl -o "/usr/local/bin/yaml-parser" --create-dirs https://raw.githubusercontent.com/fiftydinar/yaml-parser/main/yaml-parser && chmod +x "/usr/local/bin/yaml-parser"
+sudo curl -o "/usr/local/bin/yaml-parser" --create-dirs https://raw.githubusercontent.com/fiftydinar/yaml-parser/main/yaml-parser && sudo chmod +x "/usr/local/bin/yaml-parser"
 ```
 
 # Uninstallation
