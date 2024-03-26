@@ -33,7 +33,7 @@ if [ -z "${1}" ] || [ "${1}" = "help" ] || [ "${1}" = "--help" ] || [ "${1}" = "
   yaml_help
 elif case "${1}" in (*.yml|*.yaml) false;; (*) true;; esac; then
   printf "\e[1;31mERROR: YAML file is not specified in supported .yml or .yaml extension.\e[0m\n" 1>&2
-elif [ -n "${1}" ] && [ -f "${1}" ] && [ -n "${2}" ] && [ ! "${2}" = "-r" ] && [ ! "${2}" = "--replace" ]; then
+elif [ -n "${1}" ] && [ -f "${1}" ] && [ -n "${2}" ] && [ ! "${2}" = "-w" ] && [ ! "${2}" = "--write" ]; then
   yaml_read "${1}" "${2}"
 elif [ -n "${1}" ] && [ -f "${1}" ] && [ -n "${2}" ] && [ "${2}" = "-w" ] || [ "${2}" = "--write" ] && [ -n "${3}" ] && [ -n "${4}" ]; then
   yaml_write "${1}" "${2}" "${3}" "${4}"
