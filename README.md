@@ -29,3 +29,27 @@ yaml-parser document.yml key
 yaml-parser document.yml -w key value
 yaml-parser document.yml --write key value
 ```
+
+# Installation
+
+**Local (only current user has access):**
+```sh
+wget --directory-prefix="$HOME/.local/bin/" https://raw.githubusercontent.com/fiftydinar/yaml-parser/main/yaml-parser
+```
+
+**System:**
+```sh
+sudo wget --directory-prefix="/usr/local/bin/" https://raw.githubusercontent.com/fiftydinar/yaml-parser/main/yaml-parser
+```
+
+# Uninstallation
+
+**Local:**
+```sh
+rm "$HOME/.local/bin/yaml-parser"
+```
+
+**System:**
+```sh
+sudo rm "/usr/local/bin/yaml-parser"
+```
