@@ -4,14 +4,17 @@ I wrote this for projects which are strictly coded in shell language (mostly Bas
 I try to be POSIX-compliant as much as possible in order to improve compatibility, but I can't guarantee that yaml-parser will work on every POSIX-based OS.
 
 # Features
-- Supports reading of YAML files content in `.yml` & `.yaml` format.
-- Supports reading values of YAML keys.
-- Supports writing values to YAML keys.
+- **Supports reading of YAML files content in `.yml` & `.yaml` format.**
+- **Supports reading values of YAML keys.**
+- **Supports writing values to YAML keys.**
 
 # Unsupported
-- Reading YAML arrays (planned in the future)
-- Writing values to YAML arrays (planned in the future)
-- Anything else that I don't know (as I'm not the advanced user of YAML files)
+- **Reading YAML arrays**  
+  harder to implement, I will try to implement this in the future
+- **Writing values to YAML arrays**  
+  harder to implement, I will try to implement this in the future
+- **Anything else that I don't know**  
+  as I'm not the advanced user of YAML files
 
 # Usage
 ```
