@@ -11,7 +11,7 @@ I try to be POSIX-compliant as much as possible, but that's something I can't gu
 # Unsupported
 - Reading YAML arrays (planned in the future)
 - Writing values to YAML arrays (planned in the future)
-- Anything else that I don't know (as I'm not an advanced user of YAML files)
+- Anything else that I don't know (as I'm not the advanced user of YAML files)
 
 # Usage
 ```
