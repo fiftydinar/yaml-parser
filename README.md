@@ -10,6 +10,7 @@ I wrote this for projects which would be strictly Bash or POSIX compliant, so us
 # Unsupported
 - Reading YAML arrays (planned in the future)
 - Writing values to YAML arrays (planned in the future)
+- Anything else that I don't know (as I'm not an advanced user of YAML files)
 
 # Usage
 ```
