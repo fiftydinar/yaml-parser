@@ -36,12 +36,12 @@ yaml-parser "file.yml" --write "key" "value"
 
 **Local (only current user has access):**
 ```sh
-wget --directory-prefix="$HOME/.local/bin/" https://raw.githubusercontent.com/fiftydinar/yaml-parser/main/yaml-parser && chmod +x "$HOME/.local/bin/yaml-parser"
+curl -o "$HOME/.local/bin/yaml-parser" --create-dirs https://raw.githubusercontent.com/fiftydinar/yaml-parser/main/yaml-parser && chmod +x "$HOME/.local/bin/yaml-parser"
 ```
 
 **System:**
 ```sh
-sudo wget --directory-prefix="/usr/local/bin/" https://raw.githubusercontent.com/fiftydinar/yaml-parser/main/yaml-parser && sudo chmod +x "/usr/local/bin/yaml-parser"
+sudo curl -o "/usr/local/bin/yaml-parser" --create-dirs https://raw.githubusercontent.com/fiftydinar/yaml-parser/main/yaml-parser && chmod +x "/usr/local/bin/yaml-parser"
 ```
 
 # Uninstallation
