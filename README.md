@@ -22,14 +22,14 @@ yaml-parser --help
 yaml-parser -h
 
 # Read YAML file content:
-yaml-parser document.yml
+yaml-parser "file.yml"
 
 # Read YAML value from YAML key:
-yaml-parser document.yml key
+yaml-parser "file.yml" "key"
 
 # Write YAML value to YAML key:
-yaml-parser document.yml -w key value
-yaml-parser document.yml --write key value
+yaml-parser "file.yml" -w "key" "value"
+yaml-parser "file.yml" --write "key" "value"
 ```
 
 # Installation
