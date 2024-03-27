@@ -38,7 +38,7 @@ yaml-parser "file.yml" -w "key" \"value\"
 yaml-parser "file.yml" --write "key" \"value\"
 
 # Do multiple operations with yaml-parser:
-yaml-parser "file1.yml" | yaml-parser "file2.yml"
+yaml-parser "file1.yml" && yaml-parser "file2.yml"
 ```
 
 # Installation
