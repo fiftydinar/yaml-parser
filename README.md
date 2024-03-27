@@ -16,7 +16,7 @@ I try to be POSIX-compliant as much as possible in order to improve compatibilit
 
 # Usage
 ```
-# See help for some useful info:
+# See help to display this "Usage" info:
 yaml-parser
 yaml-parser help
 yaml-parser --help
@@ -31,6 +31,13 @@ yaml-parser "file.yml" "key"
 # Write YAML value to YAML key:
 yaml-parser "file.yml" -w "key" "value"
 yaml-parser "file.yml" --write "key" "value"
+
+# Write YAML value to YAML key with quotes
+yaml-parser "file.yml" -w "key" \"value\"
+yaml-parser "file.yml" --write "key" \"value\"
+
+# Do multiple operations with yaml-parser:
+yaml-parser "file1.yml" | yaml-parser "file2.yml"
 ```
 
 # Installation
