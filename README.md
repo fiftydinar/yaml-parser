@@ -32,7 +32,7 @@ yaml-parser "file.yml" "key"
 yaml-parser "file.yml" -w "key" "value"
 yaml-parser "file.yml" --write "key" "value"
 
-# Write YAML value to YAML key with quotes
+# Write quoted YAML value to YAML key:
 yaml-parser "file.yml" -w "key" \"value\"
 yaml-parser "file.yml" --write "key" \"value\"
 

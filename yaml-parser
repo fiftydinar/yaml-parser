@@ -9,7 +9,7 @@ yaml_help () {
   printf "       \e[1;90mWrite YAML value to YAML key:\e[0m\n"
   printf "       yaml-parser \"file.yml\" -w \"key\" \"value\"\n"
   printf "       yaml-parser \"file.yml\" --write \"key\" \"value\"\n"
-  printf "       \e[1;90mWrite YAML value to YAML key with quotes:\e[0m\n"
+  printf "       \e[1;90mWrite quoted YAML value to YAML key:\e[0m\n"
   printf "       yaml-parser \"file.yml\" -w \"key\" \\\\\\\"value\\\\\\\"\n"
   printf "       yaml-parser \"file.yml\" --write \"key\" \\\\\\\"value\\\\\\\"\n"
   printf "       \e[1;90mDo multiple operations with yaml-parser:\e[0m\n"
