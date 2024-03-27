@@ -12,7 +12,6 @@ I try to be POSIX-compliant as much as possible in order to improve compatibilit
 - **Reading YAML arrays**
 - **Writing values to YAML arrays**
 - **Precisely reading YAML keys by text line in case if YAML keys are duplicate**
-- **Reading & writing to multiple YAML files at the same time**
 - **Anything else that I don't know**
 
 # Usage
