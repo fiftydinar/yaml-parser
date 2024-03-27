@@ -11,6 +11,7 @@ I try to be POSIX-compliant as much as possible in order to improve compatibilit
 # Unsupported
 - **Reading YAML arrays**
 - **Writing values to YAML arrays**
+- **Writing values to duplicated YAML keys**
 - **Precisely reading YAML keys by text line in case if YAML keys are duplicate**
 - **Anything else that I don't know**
 
