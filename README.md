@@ -9,13 +9,11 @@ I try to be POSIX-compliant as much as possible in order to improve compatibilit
 - **Supports writing values to YAML keys.**
 
 # Unsupported
-- **Reading YAML arrays**  
-  harder to implement, I will try to implement this in the future
-- **Writing values to YAML arrays**  
-  harder to implement, I will try to implement this in the future
-- **Specifying code line where key value should be replaced in case of multiple same keys**
-- **Anything else that I don't know**  
-  as I'm not the advanced user of YAML files
+- **Reading YAML arrays**
+- **Writing values to YAML arrays**
+- **Precisely reading YAML keys by text line in case if YAML keys are duplicate**
+- **Reading & writing to multiple YAML files at the same time**
+- **Anything else that I don't know**
 
 # Usage
 ```
