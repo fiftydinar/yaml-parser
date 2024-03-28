@@ -41,7 +41,7 @@ yaml-parser "file1.yml" && yaml-parser "file2.yml"
 
 # Installation
 
-Only tested on Linux with GNU Utilities.
+Only tested on Linux with Bash shell & GNU Utilities.
 
 If local install command doesn't work, you will probably need to add `$HOME/.local/bin` directory to path in shell profile.
 Alternatively, modify the command to install `yaml-parser` to `$HOME/bin` directory instead.  
