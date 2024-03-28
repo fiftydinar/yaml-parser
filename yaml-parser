@@ -26,7 +26,7 @@ yaml_read () {
     count1=$(printf "${result1}" | wc -l)
     if [ "${count1}" -gt 1 ]; then
       printf "\e[1;31mERROR: YAML file syntax is invalid, as it uses duplicate keys.\n       Remove duplicate keys in YAML file & try again.\e[0m\n"  # Print error message for multiple results
-    if [ -z "${result1}" ]; then
+    elif [ -z "${result1}" ]; then
       printf "\e[1;31mnull\e[0m\n"  # Print "null" in red color if no results are found
     else
       printf "\e[1;94m%s\e[0m\n" "${result1}"  # Print the matching result in blue color
@@ -38,7 +38,7 @@ yaml_write () {
     count2=$(printf "${result2}" | wc -l)
     if [ "${count2}" -gt 1 ]; then
       printf "\e[1;31mERROR: YAML file syntax is invalid, as it uses duplicate keys.\n       Remove duplicate keys in YAML file & try again.\e[0m\n"  # Print error message for multiple results    
-    if [ -z "${result2}" ]; then
+    elif [ -z "${result2}" ]; then
       printf "\e[1;31mERROR: Supplied YAML key doesn't exist.\e[0m\n" 1>&2
     else
       sed -i "s/\(${3}: ${result2}\)/${3}: ${4}/g" "${1}" # Write the supplied value to specified yaml key
