@@ -23,7 +23,7 @@ yaml_help () {
 
 yaml_read () {
     result1=$(awk -F ": " -v key="${2}" '{sub(/#.*/, "", $2); gsub(/^[ \t]+|[ \t]+$/, "", $2)} $1 == key {gsub(/"/, "", $2); print $2}' "${1}")
-    count1=$(awk -v key="${2}" '$0 ~ key {count++} END {print count}' "${1}")
+    count1=$(awk -v key="^${2}: " '$0 ~ key {count++} END {print count}' "${1}")
     if [ "${count1}" -gt 1 ]; then
       printf "\e[1;31mERROR: YAML file syntax is invalid, as it uses duplicate keys.\n       Remove duplicate keys in YAML file & try again.\e[0m\n"  # Print error message for multiple results
     elif [ -z "${result1}" ]; then
@@ -35,7 +35,7 @@ yaml_read () {
 
 yaml_write () {
     result2=$(awk -F ": " -v key="${3}" '{sub(/#.*/, "", $2); gsub(/^[ \t]+|[ \t]+$/, "", $2)} $1 == key {print $2}' "${1}")
-    count2=$(awk -v key="${3}" '$0 ~ key {count++} END {print count}' "${1}")
+    count2=$(awk -v key="^${3}: " '$0 ~ key {count++} END {print count}' "${1}")
     if [ "${count2}" -gt 1 ]; then
       printf "\e[1;31mERROR: YAML file syntax is invalid, as it uses duplicate keys.\n       Remove duplicate keys in YAML file & try again.\e[0m\n"  # Print error message for multiple results    
     elif [ -z "${result2}" ]; then
