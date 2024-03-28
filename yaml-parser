@@ -17,7 +17,7 @@ yaml_help () {
   printf "       \e[1;90m==================================================================\e[0m\n"
   printf "\e[1;33mNotes:\e[0m Only regular YAML keys are supported. Arrays are not supported.\n"
   printf "       If duplicate keys exist, results are displayed multiple times.\n"
-  printf "       Writing values to duplicated keys is not a supported operation.\n"    
+  printf "       Duplicate keys are not supported by official YAML specification.\n"  
   printf "\e[1;33mAbout:\e[0m \"yaml-parser\" is a tool written in SH shell, using GNU Utilities,\n       which can perform basic data reading & manipulation of YAML files.\n"
   yaml_parser_url="https://github.com/fiftydinar/yaml-parser"
   printf "       \e]8;;%s\a%s\e]8;;\a\n" "${yaml_parser_url}" "${yaml_parser_url}"
