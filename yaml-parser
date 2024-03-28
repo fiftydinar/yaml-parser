@@ -16,8 +16,6 @@ yaml_help () {
   printf "       yaml-parser \"file1.yml\" && yaml-parser \"file2.yml\"\n"
   printf "       \e[1;90m==================================================================\e[0m\n"
   printf "\e[1;33mNotes:\e[0m Only regular YAML keys are supported. Arrays are not supported.\n"
-  printf "       If duplicate keys exist, results are displayed multiple times.\n"
-  printf "       Duplicate keys are not supported by official YAML specification.\n"  
   printf "\e[1;33mAbout:\e[0m \"yaml-parser\" is a tool written in SH shell, using GNU Utilities,\n       which can perform basic data reading & manipulation of YAML files.\n"
   yaml_parser_url="https://github.com/fiftydinar/yaml-parser"
   printf "       \e]8;;%s\a%s\e]8;;\a\n" "${yaml_parser_url}" "${yaml_parser_url}"
@@ -25,6 +23,9 @@ yaml_help () {
 
 yaml_read () {
     result1=$(awk -F ": " -v key="${2}" '{sub(/#.*/, "", $2); gsub(/^[ \t]+|[ \t]+$/, "", $2)} $1 == key {gsub(/"/, "", $2); print $2}' "${1}")
+    count1=$(printf "${result1}" | wc -l)
+    if [ "${count1}" -gt 1 ]; then
+      printf "\e[1;31mERROR: YAML file syntax is invalid, as it uses duplicate keys.\n       Remove duplicate keys in YAML file & try again.\e[0m\n"  # Print error message for multiple results
     if [ -z "${result1}" ]; then
       printf "\e[1;31mnull\e[0m\n"  # Print "null" in red color if no results are found
     else
@@ -34,6 +35,9 @@ yaml_read () {
 
 yaml_write () {
     result2=$(awk -F ": " -v key="${3}" '{sub(/#.*/, "", $2); gsub(/^[ \t]+|[ \t]+$/, "", $2)} $1 == key {print $2}' "${1}")
+    count2=$(printf "${result2}" | wc -l)
+    if [ "${count2}" -gt 1 ]; then
+      printf "\e[1;31mERROR: YAML file syntax is invalid, as it uses duplicate keys.\n       Remove duplicate keys in YAML file & try again.\e[0m\n"  # Print error message for multiple results    
     if [ -z "${result2}" ]; then
       printf "\e[1;31mERROR: Supplied YAML key doesn't exist.\e[0m\n" 1>&2
     else
